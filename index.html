@@ -9,46 +9,48 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
+  <div class=" container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="wrapper">
+          <img src="images/img_nature.jpg" alt=""width="300" srcset="">
+<h1> Registration Form</h1>
 
-<div class="wrapper">
-    <img src="images/img_nature.jpg" alt=""width="300" srcset="">
-    <h1>Hello User!</h1>
-    <p>Welcome Back</p>
-    <form>
-      <input type="text" id="task" placeholder="Enter username">
-      <br><br>
-      <input type="text" id="task" placeholder="Enter Father name">
-      <br><br>
-      <input type="text" id="task" placeholder="Enter Address">
-      <br><br>
-      <input type="text" id="task" placeholder="Enter Contant No">
-      <br><br>
-      <input type="text" id="task" placeholder="Enter CNIC">
-      <br><br>
-      <!-- <input type="text"placeholder="Gender">
-       <input type="radio" value="male" name="gender" required>Male
-        <input type="radio" value="female" name="gender" required>Female
-        
-        <br><br> -->
-      <input type="password"id="task" placeholder="Password">
-
-        <select name="language">
-            <option value="">Select language</option>
-            <option value="English">English</option>
-            <option value="Spanish">Spanish</option>
-            <option value="Hindi">Hindi</option>
-            <option value="Arabic">Arabic</option>
-            <option value="Russian">Russian</option>
-          </select>
-          <br><br>
-      
-    </form>
-    <br><br>
-    <button onclick="savetask()" class="btn btn-info">Sign in</button>
-  </div>
-
-
-
+  <fieldset>
+      <p><input type="text" placeholder="Enter First Name" id="fname"></p>
+      <p><input type="text" placeholder="Enter Father Name"id="efname"></p>
+      <p><input type="number" placeholder="Enter Contant No"id="Contant"></p>
+      <p><input type="text" placeholder="Enter Address"id="Address"></p>
+      <p><input type="number" placeholder="Enter CNIC"id="CNIC"></p>
+      <p><input type="e-mail" placeholder="Enter E-mail" id="Email"></p>
+      <p><input type="password" placeholder="Enter password" id="Password"></p>
+      <p><input type="text" placeholder="Enter Last Colification" id="Colification"></p>
+      <p><input type="text" placeholder="Enter Course" id="Course"></p>
+     <p> <select id="language" name="language">
+        <option id="language" value="" >Select language</option>
+        <option id="language"value="English" >English</option>
+        <option id="language"value="Spanish">Spanish</option>
+        <option id="language"value="Hindi">Hindi</option>
+        <option id="language"value="Arabic">Arabic</option>
+        <option id="language"value="Russian">Russian</option>
+      </select></p>
+      <div class=""><button class="btn btn-info text-center" onclick="submitDAta()">Submit</button></div>
+     </div> </div><div class="col-md-6 py-5">
+  </fieldset>
+<div class="FormInfo py-5">
+  <h2 id="alert">Your Massage Sent</h2>
+  <p>First Name: <span id="showname"></span></p>
+  <p>Father Name: <span id="showfather"></span></p>
+  <p>Contant: <span id="showcontant"></span></p>
+  <p>Address: <span id="showaddress"></span></p>
+  <p>CNIC: <span id="showcnic"></span></p>
+  <p>Email: <span id="showemail"></span></p>
+  <p>Password: <span id="showpass"></span></p>
+  <p>Colification: <span id="showcolific"></span></p>
+  <p>Course: <span id="showcourse"></span></p>
+  <p>Language: <span id="showlanguage"></span></p>
+</div></div>
+</div></div>
 
  <script type="module" src="app.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
