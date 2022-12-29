@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-  import { getDatabase, ref, set, onValue, onChildAdded } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+  import { getDatabase, ref, set, onValue,} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,36 +21,79 @@
   // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const database = getDatabase();
+const database = getDatabase(app);
+ 
+ 
 
 
-var  a= document.getElementById("task");
-// var titleinp = document.getElementById("title");
-// var parent = document.getElementById("parent");
 
-window.savetask = function () {
-    var obj = {
-        task: a.value,
-        // title: titleinp.value,
-    };
+window.submitDAta = function(){
+ 
 
+   var name = document.getElementById('fname').value;
+   var showname = document.getElementById('showname');
+   var father = document.getElementById('efname').value;
+   var showfather = document.getElementById('showfather');
+   var contant = document.getElementById('Contant').value;
+   var showcontant = document.getElementById('showcontant');
+   var address = document.getElementById('Address').value;
+   var showaddress = document.getElementById('showaddress');
+   var cnic = document.getElementById('CNIC').value;
+   var showcnic = document.getElementById('showcnic');
+   var Email = document.getElementById('Email').value;
+   var showemail = document.getElementById('showemail');
+   var password = document.getElementById('Password').value;
+   var showpass = document.getElementById('showpass');
+   var colification = document.getElementById('Colification').value;
+   var showcolific = document.getElementById('showcolific');
+   var course = document.getElementById('Course').value;
+   var showcourse = document.getElementById('showcourse');
+   var language = document.getElementById('language').value;
+   var showlanguage = document.getElementById('showlanguage');
 
-    obj.id = Math.random().toString().slice(2);
-    console.log(obj.id);
+  showname.innerHTML = name
+  showfather.innerHTML = father
+  showcontant.innerHTML = contant
+  showaddress.innerHTML = address
+  showcnic.innerHTML = cnic
+  showemail.innerHTML = Email
+  showpass.innerHTML = password
+  showcolific.innerHTML = colification
+  showcourse.innerHTML = course
+  showlanguage.innerHTML = language
 
-    let refrence = ref(database, `tasks/${obj.id}/`);
-    set(refrence, obj);
-    console.log(obj);
-};
-function getData() {
-    let refrence = ref(database, "tasks/");
-    let arr = [];
-    onChildAdded(refrence, function (data) {
-        arr.push(data.val());
-    })
+  var userId = Math.random().toString().slice(2);
+  var firstName= name;
+  var fatherName = father;
+  var contant = contant
+  var address = address
+  var cnic = cnic
+  var userEmail = Email
+  var userPassword = password
+  var userColification = colification
+  var userCourse = course
+  var language = language
 
-    onValue(refrence, function (data) {
-        console.log(data.val());
-    });
+  //  firebase.database().ref('name/' + userId).set()
+   set(ref(database, 'form/' + userId), {
+   firstName,
+   fatherName,
+   contant,
+   address,
+   cnic,
+   userEmail,
+   userPassword,
+   userColification,
+   userCourse,
+   language,
+   });
 }
-getData();
+
+function getData(){
+  const countData = ref(database, 'form');
+  onValue(countData, (caldata) => {
+  const data = caldata.val();
+  console.log(data);
+});
+}
+getData()
